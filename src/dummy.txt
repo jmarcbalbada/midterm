@@ -1,0 +1,10 @@
+// {routes.map((route) => (
+//   <div key={route.id}>
+//     <h2>Route Code: {route.code}</h2>
+//     <ul>
+//       {Object.keys(route.places).map((place) => (
+//         <li key={place}>{place}</li>
+//       ))}
+//     </ul>
+//   </div>
+// ))}

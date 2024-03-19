@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import InputBar from "./components/InputBar";
+import Box from "@mui/material/Box";
+import DisplayMultiplePlaces from "./components/DisplayMultiplePlaces";
+import { routes } from "./routes.js";
 
 function App() {
+  const [userInput, setUserInput] = useState("");
+
+  const handleInputChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 style={{ textAlign: "center" }}>Jeepney Route</h1>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          minHeight: "100vh",
+          marginRight: "300px",
+          marginLeft: "300px",
+        }}
+      >
+        <Box style={{ marginBottom: "20px" }}>
+          {" "}
+          <InputBar onChange={handleInputChange} />
+        </Box>
+        <DisplayMultiplePlaces userInput={userInput} routes={routes} />
+      </Box>
     </div>
   );
 }
